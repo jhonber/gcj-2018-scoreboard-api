@@ -3,6 +3,7 @@
 const base64 = require('./base64');
 const req = require('./req');
 
+const friends = require('./friends.json').friends
 const baseUrl = 'https://codejam.googleapis.com/';
 const getP = (from, cnt) => {
   const r = {
@@ -41,9 +42,10 @@ const timeToString = (time) => {
 };
 
 const contestId = process.argv[2];
-let country = '';
+let country = '', onlyFriends = false;
 if (process.argv.length >= 4) {
   country = process.argv[3];
+  onlyFriends = (process.argv[4] === 'friends');
 }
 
 // const dashboardUrl = baseUrl + 'dashboard/' + contestId + '/poll?p=e30';
@@ -127,7 +129,16 @@ req.get(scoreboardUrl, (err, res) => {
           for (let i = 0; i < data.user_scores.length; i++) {
             const user = data.user_scores[i];
             if (user.country == country) {
-              ret.push(user);
+              if (!onlyFriends) ret.push(user);
+              else {
+                for (let i = 0; i < friends.length; ++i) {
+                  if (friends[i] === user.displayname) {
+                    ret.push(user);
+                    break;
+                  }
+                }
+              }
+              // }
             }
           }
           resolve(ret);
