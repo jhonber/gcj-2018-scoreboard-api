@@ -1,13 +1,31 @@
 # GCJ 2018 scoreboard API
 
-To interact with GCJ 2018 scoreboard API
+## Fork
+- Use parameter `friends` to show only friends in the scoreboard
+
+To interact with GCJ 2019 scoreboard API
 
 ## Usage
 
-Run `node scoreboard contestID [country]`
+Configuration: Add nickname of your friends in file `friends.json` 
+(**This step is not necessary if you don't use parameter `friends`**)
+
+`node scoreboard contestID [country] friends]`
+
+[friends] - This parameter is optional
+
+## Example
+### Get Colombian score for Qualification Round 2019
+
+`node scoreboard.js 0000000000051705 Colombia`
+
+### Get Colombian score (only friends) for Qualification Round 2019
+
+`node scoreboard.js 0000000000051705 Colombia friends`
 
 ## contestID
 
+* 2019 Qualification Round 2019 : `0000000000051705`
 * 2018 Practice Session : `0000000000000130`
 * 2018 Qualification Round: `00000000000000cb`
 * 2018 Round 1A: `0000000000007883`
