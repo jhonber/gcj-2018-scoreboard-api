@@ -10,7 +10,7 @@ To interact with GCJ 2019 scoreboard API
 Configuration: Add nickname of your friends in file `friends.json` 
 (**This step is not necessary if you don't use parameter `friends`**)
 
-`node scoreboard contestID [country] friends]`
+`node scoreboard contestID [country] [friends]`
 
 [friends] - This parameter is optional
 
