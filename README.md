@@ -1,4 +1,4 @@
-# GCJ 2018 scoreboard API
+# GCJ 2019 scoreboard API
 
 ## Fork
 - Use parameter `friends` to show only friends in the scoreboard
